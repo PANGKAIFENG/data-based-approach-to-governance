@@ -2,6 +2,7 @@ export enum TaskStatus {
   Processing = '进行中',
   Completed = '已完成',
   Pending = '待处理',
+  Transmitted = '已回传',
 }
 
 export interface Task {
@@ -13,6 +14,8 @@ export interface Task {
   aiProgress: number; // 0-100
   manualProgress: number; // 0-100
   status: TaskStatus;
+  source?: 'excel' | 'style_library' | 'fabric_library';
+  aiStatus?: 'pending' | 'processing' | 'completed' | 'failed';
 }
 
 export interface ProductAttribute {
